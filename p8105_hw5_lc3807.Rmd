@@ -195,10 +195,11 @@ average_estimate_mean_rejected = mu_all |>
   summarize(average_estimate = mean(mu_hat))
 
 ggplot() +
-  geom_line(data = average_estimate_mean, aes(x = mean, y = average_estimate),color = "blue") +
-  geom_point(data = average_estimate_mean, aes(x = mean, y = average_estimate),color = "blue") +
-  geom_line(data = average_estimate_mean_rejected, aes(x = mean, y = average_estimate),color = "red") +
-  geom_point(data = average_estimate_mean_rejected, aes(x = mean, y = average_estimate), color = "red") +
+  geom_line(data = average_estimate_mean, aes(x = mean, y = average_estimate,color = "average_estimate_mean")) +
+  geom_point(data = average_estimate_mean, aes(x = mean, y = average_estimate,color = "average_estimate_mean")) +
+  geom_line(data = average_estimate_mean_rejected, aes(x = mean, y = average_estimate,color = "average_estimate_mean_rejected")) +
+  geom_point(data = average_estimate_mean_rejected, aes(x = mean, y = average_estimate, color = "average_estimate_mean_rejected")) +
+  scale_color_manual(values = c("average_estimate_mean" = "blue", "average_estimate_mean_rejected" = "red"))
   labs(x = "True μ",y = "Average estimate mean",title = "Average estimate mean vs. true μ - rejected only") +
   theme_minimal() 
 ```
